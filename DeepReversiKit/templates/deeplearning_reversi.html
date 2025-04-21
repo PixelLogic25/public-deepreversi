@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>ディープリバーシ対戦サイト</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pako/2.1.0/pako.min.js"></script>
+    <script src="{{ url_for('static', filename='js/reversi/util.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/reversi_send_receive.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/last_branch_data.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/board.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/global_value.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/reversi_board.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/reversi_game.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/minimax.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/gui_control.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/mainBoard.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/main_record.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/system_control.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/saveload.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/arrow_control.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/reversi/main.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reversi/common.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reversi/pc_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reversi/mobile_style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reversi/reversi.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reversi/cpu_custom.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/reversi/animation.css') }}">
+    <style>
+    /*絶対的に優先度が一番上*/
+.hidden {
+    display: none;
+}  
+    </style>
+    
+</head>
+<body>
+    <div class="top-bar">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" alt="ロゴ画像" class="logo-img">
+        <p class="top-bar-text">ディープラーニング製のリバーシのAI</p>
+    </div>
+    <div class="screen-root">
+        <div class="main-content">
+            <div class="game-board-area gradient-border">
+                <!--
+                <div id="current-player-display">現在のプレイヤー: <span id="now-turn">黒</span></div>
+                <div id="stone-count">黒: <span id="black-count">2</span>、白: <span id="white-count">2</span></div>
+                <div class="buttons">
+                    <button id="resetButton">リセット</button>
+
+                    <input type="text" id="edit_board" name="edit_board"/>
+                    <button id="editButton">盤面の文字列を読み込む</button>
+                    <input type="text" id="edit_board_by_moves" />
+                    <button id="movesButton">棋譜読み込み</button>
+
+                    <button id="backButton">一手戻す</button>
+                    <button id="fowardButton">一手進む</button>
+
+                </div>
+                -->
+                <!-- リバーシのボードをHTMLとCSSでデザイン -->
+                <div id="reversi-board" class="board">
+                    <!-- JavaScriptで動的に盤面を作成し、ここに追加します -->
+                </div>
+            </div>
+            <div class="control-area">
+                <div class="control-leftcenter flex">
+                    <div class="control-left">
+                        <p>   </p>
+                        <div class="stone-num-area">
+                            <div class="flex" style="height: 50%;">
+                                <div class="black count-only-stone">
+                                    <div id="is-black-turn-display" class="is-turn-display"></div>
+                                </div>
+                                <span class="count-stone-text" id="count-black-stone-text">88</span>
+                            </div>
+                            <div class="flex" style="height: 50%;">
+                                <div class="white count-only-stone">
+                                    <div id="is-white-turn-display" class="is-turn-display"></div>
+                                </div>
+                                <span class="count-stone-text" id="count-white-stone-text">88</span>
+                            </div>
+                            
+                        </div>
+
+                        
+                        <button id="ask-ai-button" type="button" class="ask-ai-button default-button-design">AIに最善手をきく</button>
+                        <button id="game-previos-move-button"   type="button" class="game-previos-move-button hidden">一手戻す</button>            
+                        <button id="game-stop-button" type="button" class="game-stop-button hidden">中断</button>
+
+
+                        
+                  
+
+                        <div style="padding: 30%;        box-sizing: border-box; /* パディングを要素内に収める */"></div>
+
+
+                        <div id="file-label" class="normal-text">セーブファイルを</div>
+                        <button id="save-button" type="button" class="save-button default-button-design">生成</button>
+                        <button id="load-button" type="button" class="load-button default-button-design">読み込み</button>
+                        <textarea id="file-textarea" class="default-area-design" rows="10" cols="30">
+    
+                        </textarea>
+
+                    </div>
+                    <div class="control-center">
+                        <div class="flex">
+                            <div class="selectbox-main-record-area">
+                                <p id="main-record-label">本譜</p>
+                                <select id="selectbox-main-record" class="selectbox-main-record" name="main-record" size="20">
+                                    <option class="default-selectbox-design" value="m1">A1</option>
+                                    <option class="default-selectbox-design" value="m2">b2</option>
+                                    <option class="default-selectbox-design" value="m3">c3</option>
+                                    <option class="default-selectbox-design" value="m4">D4</option>
+                                    <option class="default-selectbox-design" value="m5">E5</option>
+                                </select>
+                                
+                            </div>
+                            <div class="selectbox-branch-record-area">
+                                <p id="branch-record-label">分岐</p>
+                                <select id="selectbox-branch-record" class="selectbox-branch-record" name="branch-record" size="20">
+                                    <option class="default-selectbox-design" value="b1">F6</option>
+                                </select>
+                               
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="control-right">
+                    <!--<div class="control-right-margined">-->
+                        <div id="cpu-level-custom-label" class="normal-text">CPUの強さ：</div>
+                        <select id="cpu-level-custom-select" name="cpulevelCustomSelect" size="6" class="cpu-custom-selectbox">
+                            <option id="selected-cpu-custom"                    class="default-selectbox-design cpu-custom" value="cpulevelCustom"      >カスタム...</option>
+                            <option id="selected-default-easy"                  class="default-selectbox-design cpu-custom" value="easy"                >よわい</option>
+                            <option id="selected-default-normal"                class="default-selectbox-design cpu-custom" value="normal"              >ふつう</option>
+                            <option id="selected-default-hard"                  class="default-selectbox-design cpu-custom" value="hard"                >つよい</option>
+                            <option id="selected-default-yuutesonnnatuyokunai"  class="default-selectbox-design cpu-custom" value="yuutesonnnatuyokunai">てかげんむよう</option>
+                        </select>
+                        <div class="cpu-check-area not-flex">
+                            <div id="is-frist-cpu-checkBox-label">
+                                <input id="is-frist-cpu-checkBox" type="checkbox" name="cpuCheck" value="isFristCpu">
+                                先手CPU
+                            </div>
+                            <div id="is-second-cpu-checkBox-label">
+                                <input id="is-second-cpu-checkBox" type="checkbox" name="cpuCheck" value="isSecondCpu">
+                                後手CPU
+                            </div>
+                        </div>
+                        <div class="game-start-button">
+                            <button id="game-start-button" type="button" class="default-button-design">対局開始</button>
+                        </div>
+                       
+                        <div id="game-start-arrow" class="game-start-arrow"> 
+                            <img src="{{ url_for('static', filename='img/reversi/arrow_ue.png') }}" alt="" class="arrow-img">
+                        </div>
+
+                        <div style="height: 150px;"></div>
+                    <!--</div>-->
+                </div>
+
+                
+
+            </div>
+
+           
+
+        </div>
+        <div id="game-start-yuudou-arrow-area" class="game-start-yuudou-arrow-area">
+            <div style="text-align: right;">
+                <button id="yuudou-arrow-close-button" style="width: 16mm; height: 16mm;font-size: 25px;text-align: center;">X</button>
+            </div>
+            <div class="game-start-yuudou-arrow">
+                <img src="{{ url_for('static', filename='img/reversi/arrow_sita.png') }}" alt="" class="arrow-img">
+            </div>
+        </div>
+        <div id="hide-main-content" class="hide-main-content hidden"></div>
+        <div id="cpu-level-custom-screen" class="cpu-level-custom-content hidden">
+            
+            <label>読みの深さ：</label>
+            <div class="cpu-option-deep-num">
+                <select id="cpu-option-deep-num" class="cpu-custom-selectbox">
+                    <option class="cpu-selectbox-design" value="1">1手読み</option>
+                    <option class="cpu-selectbox-design" value="2">2手読み</option>
+                    <option class="cpu-selectbox-design" value="3">3手読み</option>
+                </select>
+            </div>
+
+            
+            <label>読みのブレ：</label>
+            <div class="cpu-option-add_lie">
+                <select id="cpu-option-add_lie" class="cpu-custom-selectbox">
+                    <option class="cpu-selectbox-design" value="0000">  0.0%</option>
+                    <option class="cpu-selectbox-design" value="0001">  0.1%</option>
+                    <option class="cpu-selectbox-design" value="0005">  0.5%</option>
+                    <option class="cpu-selectbox-design" value="0010">  1.0%</option>
+                    <option class="cpu-selectbox-design" value="0020">  2.0%</option>
+                    <option class="cpu-selectbox-design" value="0030">  3.0%</option>
+                    <option class="cpu-selectbox-design" value="0050">  5.5%</option>
+                    <option class="cpu-selectbox-design" value="0100"> 10.0%</option>
+                    <option class="cpu-selectbox-design" value="0200"> 20.0%</option>
+                    <option class="cpu-selectbox-design" value="0500"> 50.0%</option>
+                    <option class="cpu-selectbox-design" value="1000">100.0%</option>
+                </select>
+            </div>
+            <label>0.0%ほど強いです。</label>
+            <label>100.0%はすっごく弱くなります。</label>
+
+            <div class="cpu-custom-close-button">
+                <button id="cpu-custom-close-button" type="button" class="default-button-design">とじる</button>
+            </div>
+        </div>
+
+      
+    </div>
+    <div id="debug">
+        <p id="debug-message"></p>
+    </div>
+
+    
+
+</body>
+</html>

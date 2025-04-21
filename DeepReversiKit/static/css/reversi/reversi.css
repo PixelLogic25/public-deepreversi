@@ -1,0 +1,234 @@
+:root {
+    --main-text: #333;
+    --main-bg: #fff;
+
+    --content-bg:#0c0;
+    
+}
+
+.screen-root{
+    position: relative;
+
+}
+
+
+
+
+
+
+body {
+    color: var(--main-text);
+    background-color: var(--main-bg);
+
+    background: repeating-linear-gradient(
+        #cec398 50px,#bcb382 100px
+    );
+}
+
+
+.board{
+    width: 80%;
+    aspect-ratio: 1;
+
+
+    /*background-color: #4caf50;*/
+    
+    margin: auto auto;
+    border-color: #000;
+    border:  2px solid;
+
+    
+
+}
+
+.game-board-area{
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center; /* 垂直方向の中央揃え */
+    background-color: #000;     
+}
+
+
+.control-leftcenter{
+    text-align: center;
+   
+}
+
+.control-center{
+    text-align: center;
+}
+.control-right{
+    text-align: center;
+}
+
+
+
+
+.count-only-stone{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin:auto;
+    position:relative;
+    height: 50%;/*幅*/
+	aspect-ratio: 1 / 1;
+	border-radius: 50%;/*角丸*/
+    border:  2px solid;
+}
+
+.is-turn-display{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top:50%;
+    left:50%;
+    width:50%;
+    height:50%;
+
+    width: 30%;/*幅*/
+	height: 30%;/*高さ*/
+	border-radius: 10%;/*角丸*/
+    border-color: #EDD;
+    border:  2px solid;
+    background: #b22;
+}
+
+
+.default-selectbox-design{
+    font-size: 1rem;
+}
+
+.ask-ai-button{
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.game-stop-button{
+
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 1cm;
+
+    width: 40%;
+    font-size: 30px;
+    aspect-ratio: 1/1;
+}
+
+.game-previos-move-button{
+
+    margin-left: auto;
+    margin-right: auto;
+
+    margin-top: 1cm;
+    width: 40%;
+    font-size: 30px;
+    aspect-ratio: 1/1;
+
+}
+
+.control-right-margined{
+    margin-left: auto;
+    width:95%;
+}
+
+.possible{
+    width: 60%;/*幅*/
+	height: 60%;/*高さ*/
+	border-radius: 10%;/*角丸*/
+    border-color: #a3b;
+    border:  2px solid;
+    background: #a3b;
+
+    position: absolute;
+    z-index: 1;
+}
+
+
+
+.stone-num-area{
+    background-color: #888;
+    width: 70%;
+    height: 30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1.5rem;
+    display: block;
+
+
+
+}
+.cpu-check-area{
+    width :80%;
+}
+
+.game-start-button{
+    margin:0 auto;
+   /* width:50%;*/
+}
+.save-button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.load-button{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
+
+.flex{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+}
+.selectbox-main-record{
+    width:90%;
+
+}
+.selectbox-branch-record{
+    width:90%;
+
+}
+.selectbox-main-record-area{
+    width: 50%;
+}
+.selectbox-branch-record-area{
+    width: 50%;
+}
+
+
+
+
+
+.top-bar{
+    display: flex;
+    width: 100%;
+    height: 70px;
+
+    background: linear-gradient(to bottom, #aae 30%, #88e 80%, #88e 90%);
+
+}
+
+.logo-img{
+    display: block;
+    height: 100%;
+    aspect-ratio: 300/100;
+    margin-left: 10%;
+}
+
+.top-bar-text{
+    color: #222;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 1cm;
+
+    font-size: 20px;
+    font-family:'BIZ UDPゴシック'
+
+}
+
+
+

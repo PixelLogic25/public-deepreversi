@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>リバーシ</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='reversi_debug.js') }}"></script>
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reversi_debug.css') }}">
+</head>
+<body>
+
+    <div id="game-info">
+        <div id="current-player-display">現在のプレイヤー: <span id="now-turn">黒</span></div>
+        <div id="stone-count">黒: <span id="black-count">2</span>、白: <span id="white-count">2</span></div>
+        <div class="buttons">
+            <button id="resetButton">リセット</button>
+
+            <input type="text" id="edit_board" name="edit_board"/>
+            <button id="editButton">盤面の文字列を読み込む</button>
+            <input type="text" id="edit_board_by_moves" />
+            <button id="movesButton">棋譜読み込み</button>
+
+            <button id="backButton">一手戻す</button>
+            <button id="fowardButton">一手進む</button>
+
+        </div>
+    </div>
+
+
+<!-- リバーシのボードをHTMLとCSSでデザイン -->
+    <div id="reversi-board" class="board">
+        <!-- JavaScriptで動的にマス目を生成し、ここに追加します -->
+    </div>
+
+    <div id="debug">
+        <p id="debug-message"></p>
+    </div>
+
+    
+
+</body>
+</html>

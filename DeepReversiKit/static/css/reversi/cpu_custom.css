@@ -1,0 +1,83 @@
+.hide-main-content{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex; 
+    flex-direction: column;
+
+    position: absolute;
+    padding: 100cm 100cm;
+    height: 100%;
+
+    z-index: 990;
+
+    background-color: #DCC;
+
+}
+
+.cpu-level-custom-content{
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex; 
+    flex-direction: column;
+
+    position: absolute;
+    width: 50%;
+
+    margin-left: 25%;
+    margin-top: 2cm;
+
+    z-index: 1000;
+    border-width: 10px;
+    border: #003;
+
+    
+}
+
+.cpu-option-deep-num{
+    width: 50%;
+}
+
+.cpu-option-add_lie{
+    width: 30%;
+}
+
+.not-flex{
+    display:block
+}
+
+
+/*横長のスタイル*/
+@media (min-aspect-ratio: 1/1) {
+
+    select#cpu-option-deep-num{
+        height: 20px;
+    
+
+
+    }
+    .cpu-selectbox-design{
+        font-size: 1rem;
+
+    
+    }
+}
+
+/* 縦長のスタイル */
+@media (max-aspect-ratio: 1/1) {
+    select#cpu-option-deep-num,select#cpu-option-add_lie{
+        height: 40px;
+       
+
+    }
+    .cpu-selectbox-design{
+        font-size: 1rem;
+
+    
+    
+    }
+}
+

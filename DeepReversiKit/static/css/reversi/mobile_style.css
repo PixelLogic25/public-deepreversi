@@ -1,0 +1,133 @@
+/* 縦長のスタイル */
+@media (max-aspect-ratio: 1/1) {
+
+    :root{
+        font-size: 32px;
+    }
+
+    body {
+        background-color: #F00;
+    }
+
+    .default-button-design{
+
+        height: 50px;
+        font-size: 35px;
+    }
+    .main-content{
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flex;
+        display: -o-flex;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        width:100%;
+        z-index: 1;
+    }
+    .control-area{
+        display: block;
+        width:100%;
+
+    }
+
+
+    .control-left{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width:50%;
+    }
+    
+    .control-center{
+        width:50%;
+    }
+    
+    .control-right{
+        width:100%;
+    }
+
+    .count-stone-text{
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin:auto;
+    }
+
+    .game-board-area{
+        width:100%;        
+    }
+
+    .row {
+        display: flex;
+        width:100%;
+
+    }
+    
+    .cell {
+    
+        width: 12%;
+        /*max-width: 80px;*/
+        aspect-ratio: 1 / 1;
+        background-color: var(--content-bg);
+        border-color: black;
+        border:  2px solid;
+    
+        display: flex;          /* フレックスボックスとして設定 */
+        justify-content: center; /* 水平方向の中央揃え */
+        align-items: center;    /* 垂直方向の中央揃え */
+
+        position: relative;
+    }
+    
+    
+    .stone{
+        width: 90%;/*幅*/
+        aspect-ratio: 1 / 1;
+        border-radius: 50%;/*角丸*/
+        border:  2px solid;
+        position: absolute;
+        z-index: 20;
+    }
+
+    .strong{
+        width: 20%;/*幅*/
+        height: 20%;/*高さ*/
+        border-radius: 10%;/*角丸*/
+        border-color: #cc0;
+        border:  2px solid;
+        background: #aa0;
+
+        position: absolute;
+        z-index: 100;
+    }
+
+
+ 
+    .cpu-custom-selectbox{
+        height: 100px;
+        font-size: 40px;
+    }
+
+    .cpu-custom-selectbox{
+
+        width:250px;
+        height: 200px;
+        font-size: 40px;
+    
+    }
+
+
+    .selectbox-main-record{
+        height:720px;
+        font-size: 50px;
+    
+    }
+    .selectbox-branch-record{
+        height:720px;
+        font-size: 50px;
+    }
+
+
+}
+/*縦長スタイル終わり*/

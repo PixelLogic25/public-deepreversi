@@ -1,0 +1,79 @@
+:root {
+  --animation-delay: 0s; /* デフォルト値 */
+  --animation-name: noDefind
+}
+
+
+
+
+
+
+.game-start-yuudou-arrow{
+  position: relative;
+  z-index: 10;
+  animation: downUp 2s ease-in-out infinite;
+}
+
+
+.game-start-yuudou-arrow-area{
+  position: fixed;
+  top: 75%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+/* 縦長のスタイル */
+@media (max-aspect-ratio: 1/1) {
+
+  .game-start-yuudou-arrow{
+    display: block;
+  }
+  .arrow-img{
+    width: 30vw;
+    height: 30vw;
+  }
+
+  .game-start-arrow{
+    width: 30vw;
+    height: 30vw;
+    margin: 0 auto;
+    position: relative;
+    animation: upDown 2s ease-in-out infinite;
+  }
+}
+
+/*横長のスタイル*/
+@media (min-aspect-ratio: 1/1) {
+  
+  /*PCのときはいらないので非表示*/
+  .game-start-yuudou-arrow{
+    display: none;
+  }
+
+  .arrow-img{
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .game-start-arrow{
+    width: 5vw;
+    height: 5vw;
+    margin: 0 auto;
+    position: relative;
+    animation: upDown 2s ease-in-out infinite;
+  }
+}
+
+
+
+@keyframes upDown {
+  0%   { top: 0; }
+  50%  { top: 60px; }
+  100% { top: 0; }
+}
+
+@keyframes downUp {
+  0%   { top: 60px; }
+  50%  { top: 0px; }
+  100% { top: 60px; }
+}

@@ -1,0 +1,76 @@
+:root {
+    --main-text: #333;
+    --main-bg: #fff;
+
+    --content-bg:#0c0;
+    
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --main-text: #ddd;
+        --main-bg: #000;
+        --content-bg:#555;
+    }
+}
+
+
+
+body {
+    color: var(--main-text);
+    background-color: var(--main-bg);
+}
+
+
+
+.row {
+    display: flex;
+
+
+}
+
+.cell {
+
+    width: 60px;
+    height: 60px;
+    background-color: var(--content-bg);
+    border-color: black;
+    border:  2px solid;
+
+    display: flex;          /* フレックスボックスとして設定 */
+    justify-content: center; /* 水平方向の中央揃え */
+    align-items: center;    /* 垂直方向の中央揃え */
+}
+
+
+.white{
+
+
+    width: 50px;/*幅*/
+	height: 50px;/*高さ*/
+	border-radius: 50%;/*角丸*/
+    border-color: white;
+    border:  2px solid;
+    background: #fff;
+}
+.black{
+
+
+
+    width: 50px;/*幅*/
+	height: 50px;/*高さ*/
+	border-radius: 50%;/*角丸*/
+    border-color: #000;
+    border:  2px solid;
+    background: #000;
+}
+
+.possible{
+    width: 50px;/*幅*/
+	height: 50px;/*高さ*/
+	border-radius: 10%;/*角丸*/
+    border-color: #a3b;
+    border:  2px solid;
+    background: #a3b;
+}
+
