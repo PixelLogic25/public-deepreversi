@@ -20,13 +20,24 @@
 
 本プロジェクトは**Windows上でAnaconda**を使用して開発しました。
 
-1. Anacondaをインストールします。
-2. Python 3.9系の新しい仮想環境を作成します。
-![説明用画像](/README_images/005.png)
-3. 仮想環境内で `flask` と `tensorflow` をインストールします。
+手順1. Anacondaをインストールします。
+手順2. Anacondaを起動して、Python 3.9系の新しい仮想環境を作成します。
+<p align="center">
+ <img src="/README_images/005.png" alt="説明用画像" />
+</p>
+<p align="center">図1.環境作成画面</p>
+
 
 > ※Pythonのバージョンは**3.9系であれば問題ありません**。  
-> （例：3.9.21で環境を作成しても、パッケージ追加時に自動的に3.9.18になる場合があります）
+> （例：3.9.21で環境を作成しても、パッケージ追加時に自動的に3.9.18になる）
+手順3. 手順2.で作成した環境内で `flask` と `tensorflow` をインストールします。
+<p align="left">
+ <img src="/README_images/015.png" alt="説明用画像" />
+</p>
+図2.
+<p align="left">
+ <img src="/README_images/005.png" alt="説明用画像" />
+</p>
 
 他のOS（Linux, Macなど）でも、基本的に同様の手順で構築できるはずです。
 
