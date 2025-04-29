@@ -1,4 +1,6 @@
 # public-deepreversi
+
+
 ディープラーニングでリバーシを強化学習させるコード。
 # プロジェクト概要
 
@@ -190,12 +192,12 @@ Search packageに"flask"と入力してflaskにチェックを付けます。
 
 ### 手順e. **AIと対戦・挙動を確認する場合**：
    - 図9を参考に、動作させたいモデルを指定します。
-   - /DeepReversiKit/views/reversi_view.pyの39行目を、手順dで作成したモデルが"sedai1.h5"なら、図9の赤の下線部を"sedai1.h5"に書き換えます。
+/DeepReversiKit/views/reversi_view.pyの39行目を、手順dで作成したモデルが"sedai1.h5"なら、図9の赤の下線部を"sedai1.h5"に書き換えます。
 <p align="center">
  <img src="/README_images/085.png" alt="説明用画像" />
 </p>
 <p align="center">図9 動かしたいモデルの指定箇所。</p>
-   - 同梱の `launch.json` を使用して、「Pythonデバッガー: launch.jsonを使用したデバッグ」でサーバーを起動します。
-   - `DeepReversiKitPlatTest` を選択します。
-   - ブラウザで [http://127.0.0.1:8888](http://127.0.0.1:8888) にアクセスします。
-   - 遊べます。
+<p>同梱の `launch.json` を使用して、「Pythonデバッガー: launch.jsonを使用したデバッグ」でサーバーを起動します。</p>
+<p>`DeepReversiKitPlatTest` を選択します。</p>
+<p>ブラウザで [http://127.0.0.1:8888](http://127.0.0.1:8888) にアクセスします。</p>
+<p>遊べます。</p>
