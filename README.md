@@ -159,6 +159,27 @@ Search packageに"flask"と入力してflaskにチェックを付けます。
 ### 手順d. **AIを学習させる場合**：
    - `learning.py` をデバッガーで実行します。
 > 初期の段階では学習AIは初期状態、対戦相手はランダム打ちです。
+
+#### 学習手順
+1. 勝率8割を10回連続で達成すると学習が自動で終了します。しばらく実行させると、自動で終了して/DeepReversiKit/model_files/配下にfinal_model.h5が作成されます。
+> (途中で中断したい場合は、learning.pyのどこかの行にブレークポイントを入れて、VSCodeのデバッグコンソールで「agent.model.save(f'model_files/model_{e+1}.h5')」と打ち込むと途中セーブされます。)
+> また1万対局ごとに自動でセーブされます。
+
+2.そのままの名前にしておくと次学習が完了したとき消え去ってしまうので名前を変更しておきましょう。ここでは「sedai1.h5」とします。
+
+3.sedai1.h5はランダム打ち相手で育ったモデルで、まだ非常に弱いです。さらに強化するために/DeepReversiKit/learning.pyの100行目付近を書き換えます。
+
+<p align="center">
+ <img src="/README_images/075.png" alt="説明用画像" />
+</p>
+<p align="center">図7 学習相手と学習初期状態を指定する部分</p>
+
+
+<p align="center">
+ <img src="/README_images/080.png" alt="説明用画像" />
+</p>
+<p align="center">図7 学習相手と学習初期状態を書き換え</p>
+
 ### 手順e. **AIと対戦・挙動を確認する場合**：
    - 同梱の `launch.json` を使用して、「Pythonデバッガー: launch.jsonを使用したデバッグ」でサーバーを起動します。
    - `DeepReversiKitPlatTest` を選択します。
