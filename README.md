@@ -34,7 +34,7 @@
 ### 手順3. 手順2.で作成した環境内で `flask` と `tensorflow` をインストールします。
 
 図2.の赤丸で囲ってある場所を「not installed」にします。
-<p align="left">
+<p align="center">
  <img src="/README_images/015.png" alt="説明用画像" />
 </p>
 <p align="center">図2.パッケージ追加画面1</p>
@@ -42,18 +42,18 @@
 図3.図4.のようにtensorflowとflaskを追加した後、図5のapplyを押します。
 
 Search packageに"tensorflow"と入力してtensorflowにチェックを付けます。
-<p align="left">
+<p align="center">
  <img src="/README_images/025.png" alt="説明用画像" />
 </p>
 <p align="center">図3.パッケージ追加画面 tensorflow追加</p>
 
 Search packageに"flask"と入力してflaskにチェックを付けます。
-<p align="left">
+<p align="center">
  <img src="/README_images/035.png" alt="説明用画像" />
 </p>
 <p align="center">図4.パッケージ追加画面2 flask追加</p>
 
-<p align="left">
+<p align="center">
  <img src="/README_images/045.png" alt="説明用画像" />
 </p>
 <p align="center">図5パッケージ追加画面右下のapply/Clear</p>
@@ -143,13 +143,17 @@ Search packageに"flask"と入力してflaskにチェックを付けます。
 ### 手順a.このプロジェクトをダウンロードなり、フォークなりしてどこか任意のフォルダに入れておきます。
 ### 手順b.Visual Studio Code (VSCode) を起動します。
 起動したらフォルダーを開くを押して、手順a.のフォルダを開きます。
-<p align="left">
+<p align="center">
  <img src="/README_images/055.png" alt="説明用画像" />
 </p>
-<p align="center">図6フォルダーを開くを押す</p>
+<p align="center">図6 フォルダーを開くを押す</p>
 
 ### 手順c.VSCode右下の小さいpythonのバージョンが表示されているところをクリックして手順2.で作成した環境を選択します。
-
+> すでに選択されていれば問題ありません
+<p align="center">
+ <img src="/README_images/065.png" alt="説明用画像" />
+</p>
+<p align="center">図7 バージョン選択</p>
 
 
 ### 手順d. **AIを学習させる場合**：
