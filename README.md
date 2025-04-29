@@ -2,13 +2,14 @@
 リバーシの深層学習のコード
 # プロジェクト概要
 
-このプロジェクトは、**強化学習でリバーシ（オセロ）AIを育成できるシステム**です。  
+このプロジェクトは、**強化学習でリバーシ（オセロ）AIを育成できるコード**です。  
 育成したAIとは、**ウェブブラウザ上で対戦しながら挙動を確認**することができます。
 
 - 対局中に「待った」や「やり直し」が可能です。
 - 「待った」後に別の手を打った場合でも、**棋譜の分岐**を保持して管理できます。
 - コードを修正することで、**モデルの構成変更や学習方法の変更**にも対応可能です。
-
+> このREADME.mdはとても丁寧に作っているつもりですが、肝心のソースコードはだいぶ読みづらいです。
+> プログラミング初心者にはさっぱりわからないと思いますが、こちらでサポートはしません。ご了承ください。
 # 使用技術
 
 - **言語**：JavaScript、Python
@@ -20,8 +21,8 @@
 
 本プロジェクトは**Windows上でAnaconda**を使用して開発しました。
 
-手順1. Anacondaをインストールします。
-手順2. Anacondaを起動して、Python 3.9系の新しい仮想環境を作成します。
+### 手順1. Anacondaをインストールします。
+### 手順2. Anacondaを起動して、Python 3.9系の新しい仮想環境を作成します。
 <p align="center">
  <img src="/README_images/005.png" alt="説明用画像" />
 </p>
@@ -30,14 +31,32 @@
 
 > ※Pythonのバージョンは**3.9系であれば問題ありません**。  
 > （例：3.9.21で環境を作成しても、パッケージ追加時に自動的に3.9.18になる）
-手順3. 手順2.で作成した環境内で `flask` と `tensorflow` をインストールします。
+### 手順3. 手順2.で作成した環境内で `flask` と `tensorflow` をインストールします。
+
+図2.の赤丸で囲ってある場所を「not installed」にします。
 <p align="left">
  <img src="/README_images/015.png" alt="説明用画像" />
 </p>
-図2.
+<p align="center">図2.パッケージ追加画面1</p>
+
+図3.図4.のようにtensorflowとflaskを追加した後、図5のapplyを押します。
+
+Search packageに"tensorflow"と入力してtensorflowにチェックを付けます。
 <p align="left">
- <img src="/README_images/005.png" alt="説明用画像" />
+ <img src="/README_images/025.png" alt="説明用画像" />
 </p>
+<p align="center">図3.パッケージ追加画面 tensorflow追加</p>
+
+Search packageに"flask"と入力してflaskにチェックを付けます。
+<p align="left">
+ <img src="/README_images/035.png" alt="説明用画像" />
+</p>
+<p align="center">図4.パッケージ追加画面2 flask追加</p>
+
+<p align="left">
+ <img src="/README_images/045.png" alt="説明用画像" />
+</p>
+<p align="center">図5パッケージ追加画面右下のapply/Clear</p>
 
 他のOS（Linux, Macなど）でも、基本的に同様の手順で構築できるはずです。
 
@@ -121,10 +140,23 @@
 
 # プロジェクトの起動・使用方法
 
-1. Visual Studio Code (VSCode) を起動します。
-2. **AIを学習させる場合**：
+### 手順a.このプロジェクトをダウンロードなり、フォークなりしてどこか任意のフォルダに入れておきます。
+### 手順b.Visual Studio Code (VSCode) を起動します。
+起動したらフォルダーを開くを押して、手順a.のフォルダを開きます。
+<p align="left">
+ <img src="/README_images/055.png" alt="説明用画像" />
+</p>
+<p align="center">図6フォルダーを開くを押す</p>
+
+### 手順c.VSCode右下の小さいpythonのバージョンが表示されているところをクリックして手順2.で作成した環境を選択します。
+
+
+
+### 手順d. **AIを学習させる場合**：
    - `learning.py` をデバッガーで実行します。
-3. **AIと対戦・挙動を確認する場合**：
+> 初期の段階では学習AIは初期状態、対戦相手はランダム打ちです。
+### 手順e. **AIと対戦・挙動を確認する場合**：
    - 同梱の `launch.json` を使用して、「Pythonデバッガー: launch.jsonを使用したデバッグ」でサーバーを起動します。
    - `DeepReversiKitPlatTest` を選択します。
    - ブラウザで [http://127.0.0.1:8888](http://127.0.0.1:8888) にアクセスします。
+   - 遊べます。
