@@ -1,5 +1,7 @@
 # public-deepreversi
-
+<p align="center">
+ <img src="/README_images/main.png" alt="対戦画面" />
+</p>
 
 ディープラーニングでリバーシを強化学習させるコード。
 # プロジェクト概要
