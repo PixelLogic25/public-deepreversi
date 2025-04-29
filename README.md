@@ -1,4 +1,4 @@
-# public-deepreversi
+# deep-reversi
 <p align="center">
  <img src="/README_images/main.png" alt="対戦画面" />
 </p>
