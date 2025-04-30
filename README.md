@@ -200,7 +200,7 @@ Search packageに"flask"と入力してflaskにチェックを付けます。
 <p align="center">図9 動かしたいモデルの指定箇所。</p>
 <p>同梱の `launch.json` を使用して、「Pythonデバッガー: launch.jsonを使用したデバッグ」でサーバーを起動します。</p>
 <p>`DeepReversiKitPlatTest` を選択します。</p>
-<p>ブラウザで [http://127.0.0.1:8888](http://127.0.0.1:8888) にアクセスします。</p>
+<p>ブラウザで [http://127.0.0.1:8888]にアクセスします。</p>
 <p>遊べます。</p>
 
 
